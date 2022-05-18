@@ -1,16 +1,17 @@
 import React from 'react';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Login = () => {
     const [user] = useAuthState(auth);
     const [signInWithEmailAndPassword, signUser, signLoading, signError] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
     let location = useLocation();
     let from = location.state?.from?.pathname || "/";
 
-    if (user) {
+    if (user || gUser) {
         navigate(from, { replace: true });
     }
 
@@ -30,11 +31,15 @@ const Login = () => {
                 <p className='text-center text-red-500 fw-bold'>{signError?.message}</p>
                 <p>
                     {
-                        signLoading && <button class="btn btn-square loading mb-2"></button>
+                        (signLoading || gLoading) && <button class="btn btn-square loading mb-2"></button>
                     }
                 </p>
                 <button class="btn btn-primary">Login</button>
                 <p className='text-center mt-3 fw-bold'>New User? <Link to='/register' className='text-primary font-bold'>Register</Link> </p>
+                <div class="flex flex-col w-full border-opacity-50">
+                    <div class="divider">OR</div>
+                    <button onClick={() => signInWithGoogle()} class="btn">Signin with google</button>
+                </div>
             </form>
         </div>
     );

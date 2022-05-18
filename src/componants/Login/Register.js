@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
@@ -7,9 +7,10 @@ const Login = () => {
     const [user] = useAuthState(auth);
     const [error, setError] = useState('');
     const [createUserWithEmailAndPassword, emailUser, emailLoading, emailError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const navigate = useNavigate();
 
-    if (user) {
+    if (user || gUser) {
         navigate('/about')
     }
 
@@ -47,6 +48,10 @@ const Login = () => {
                 </p>
                 <button class="btn btn-primary">Register</button>
                 <p className='mt-3'>Already User? <Link to='/login' className='text-primary font-bold p-3'>Login</Link></p>
+                <div class="flex flex-col w-full border-opacity-50">
+                    <div class="divider">OR</div>
+                    <button onClick={() => signInWithGoogle()} class="btn">Signin with google</button>
+                </div>
             </form>
         </div >
     );
