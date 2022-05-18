@@ -23,7 +23,7 @@ const Login = () => {
 
     }
     return (
-        <div className=''>
+        <div className='mt-4'>
             <form onSubmit={handleSignin} className='w-1/4 p-3 mx-auto text-center border-2'>
                 <input type="text" name="email" placeholder="Email" className="input input-bordered mb-4 w-full max-w-xs" /> <br />
                 <input type="password" name="password" placeholder="Password" className="input input-bordered mb-4 w-full max-w-xs" /> <br />

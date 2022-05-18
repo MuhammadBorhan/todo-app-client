@@ -10,16 +10,15 @@ const Header = () => {
         signOut(auth)
     }
     return (
-        <div className="navbar bg-base-100 px-12">
+        <div className="navbar bg-gray-300 px-12">
             <div className="flex-1">
-                <Link to='/' className="btn btn-ghost normal-case text-xl">ToDo App</Link>
+                <Link to='/' className="btn btn-ghost normal-case text-2xl font-bold">ToDo App</Link>
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
-                    <li><Link to='/home'>Home</Link></li>
-                    <li><Link to='/About'>About</Link></li>
+                    <li><Link to='/About' className='text-xl font-bold'>Task</Link></li>
                     {
-                        user ? <li><Link onClick={handleSignout} to=''>Logout</Link></li> : <li><Link to='/login'>Login</Link></li>
+                        user ? <li><Link onClick={handleSignout} className='text-xl font-bold' to=''>Logout</Link></li> : <li><Link className='text-xl font-bold' to='/login'>Login</Link></li>
                     }
                 </ul>
             </div>
