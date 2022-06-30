@@ -5,7 +5,7 @@ const Home = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, event) => {
         console.log(data);
-        const url = `https://fierce-cove-70446.herokuapp.com/user`;
+        const url = `http://localhost:5000/user`;
         fetch(url, {
             method: 'POST',
             headers: {

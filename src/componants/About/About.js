@@ -5,7 +5,7 @@ const About = () => {
     const [relode, setRelode] = useState(false);
 
     useEffect(() => {
-        const url = `https://fierce-cove-70446.herokuapp.com/users`;
+        const url = `http://localhost:5000/users`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -17,7 +17,7 @@ const About = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
-            const url = `https://fierce-cove-70446.herokuapp.com/users/${id}`;
+            const url = `http://localhost:5000/users/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -41,6 +41,9 @@ const About = () => {
                                 <tbody>
                                     <tr className=''>
                                         <td className='text-left ml-0 pl-0'><p className='font-bold'><span className='text-bold text-indigo-600 font-bold text-xl'>Name:</span> {task.name}</p> <p><span className='text-blue-500 font-bold text-xl'>Description:</span> {task.description}</p></td>
+                                        <td className='text-right'>
+                                            <button class="btn btn-primary">Update</button>
+                                        </td>
                                         <td onClick={() => handleDelete(task._id)} className='text-right text-2xl text-red-600 font-bold cursor-pointer'><button class="btn btn-error  font-bold">Delete</button></td>
                                     </tr>
                                 </tbody>
