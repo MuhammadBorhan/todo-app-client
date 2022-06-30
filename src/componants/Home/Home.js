@@ -20,8 +20,7 @@ const Home = () => {
             })
     }
     return (
-        <div>
-
+        <div className='px-12'>
             <div className='md:w-1/4 w-full mx-auto'>
                 <form onSubmit={handleSubmit(onSubmit)} className='p-2 border-4 mt-4'>
                     <input type="text" placeholder="Name" className="input input-bordered mb-3 w-full max-w-xs" {...register("name", { required: true })} /> <br />

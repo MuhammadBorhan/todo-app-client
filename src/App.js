@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './componants/About/About';
+import Calendar from './componants/calendar/Calendar';
 import Header from './componants/Header/Header';
 import Home from './componants/Home/Home';
 import Login from './componants/Login/Login';
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<PrivateRoute><About></About></PrivateRoute>}></Route>
         <Route path='/about' element={<PrivateRoute><About></About></PrivateRoute>}></Route>
         <Route path='/todo' element={<Home></Home>}></Route>
+        <Route path='/calendar' element={<Calendar></Calendar>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

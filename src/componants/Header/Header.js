@@ -11,16 +11,23 @@ const Header = () => {
     }
     return (
         <div className="navbar bg-gray-300 px-12">
-            <div className="flex-1">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <label tabindex="0" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    </label>
+                    <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><Link to='/About' className='text-xl font-bold'>Task</Link></li>
+                        <li><Link to='/todo' className='text-xl font-bold'>To-Do</Link></li>
+                    </ul>
+                </div>
                 <Link to='/' className="btn btn-ghost normal-case text-2xl font-bold text-blue-600">To-Do App</Link>
             </div>
-            <div className="flex-none">
-                <ul className="menu menu-horizontal p-0">
+            <div class="navbar-end hidden lg:flex">
+                <ul class="menu menu-horizontal p-0">
                     <li><Link to='/About' className='text-xl font-bold'>Task</Link></li>
                     <li><Link to='/todo' className='text-xl font-bold'>To-Do</Link></li>
-                    {
-                        user ? <li><Link onClick={handleSignout} className='text-xl font-bold' to=''>Logout</Link></li> : <li><Link className='text-xl font-bold' to='/login'>Login</Link></li>
-                    }
+                    <li><Link to='/calendar' className='text-xl font-bold'>Calendar</Link></li>
                 </ul>
             </div>
         </div>
@@ -28,3 +35,6 @@ const Header = () => {
 };
 
 export default Header;
+
+
+{/* <li><Link className='text-xl font-bold' to='/login'>Login</Link></li> */ }
