@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 
 const Home = () => {
     const { register, handleSubmit } = useForm();
@@ -17,6 +18,7 @@ const Home = () => {
             .then(result => {
                 console.log(result);
                 event.target.reset();
+                toast.success('Task Successfully Added');
             })
     }
     return (

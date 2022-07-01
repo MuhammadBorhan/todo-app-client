@@ -36,6 +36,7 @@ const About = () => {
             <div className='mt-4 py-5'>
                 <h3 className='text-2xl text-green-600 font-bold text-center'>Total Task: {tasks.length}</h3>
                 <div>
+                    <Link to='/todo'><button class="btn btn-gost mt-4 ml-0 md:ml-36">Add New Task</button></Link>
                     {
                         tasks.map((task) => <div key={task._id} task={task} class="overflow-x-auto lg:w-3/4 mx-auto">
                             <table className="table w-full">
