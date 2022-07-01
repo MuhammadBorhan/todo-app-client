@@ -10,9 +10,9 @@ const Calendar = () => {
         footer = <p className='font-bold'>You picked {format(selected, 'PP')}.</p>;
     }
     return (
-        <div className='flex justify-center'>
+        <div className='flex justify-center py-4 bg-slate-400'>
             <DayPicker
-
+                className='shadow-lg p-4 bg-white'
                 mode="single"
                 selected={selected}
                 onSelect={setSelected}

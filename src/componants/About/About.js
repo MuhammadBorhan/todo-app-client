@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
     const [tasks, setTasks] = useState([]);
@@ -42,7 +43,7 @@ const About = () => {
                                     <tr className=''>
                                         <td className='text-left ml-0 pl-0'><p className='font-bold'><span className='text-bold text-indigo-600 font-bold text-xl'>Name:</span> {task.name}</p> <p><span className='text-blue-500 font-bold text-xl'>Description:</span> {task.description}</p></td>
                                         <td className='text-right'>
-                                            <button class="btn btn-primary">Update</button>
+                                            <Link to={`singletask/${task._id}`}><button class="btn btn-primary">Edit</button></Link>
                                         </td>
                                         <td onClick={() => handleDelete(task._id)} className='text-right text-2xl text-red-600 font-bold cursor-pointer'><button class="btn btn-error  font-bold">Delete</button></td>
                                     </tr>

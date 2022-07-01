@@ -1,21 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './componants/About/About';
+import SingleTask from './componants/About/SingleTask';
 import Calendar from './componants/calendar/Calendar';
 import Header from './componants/Header/Header';
 import Home from './componants/Home/Home';
 import Login from './componants/Login/Login';
 import Register from './componants/Login/Register';
 import NotFound from './componants/notFound/NotFound';
-import PrivateRoute from './componants/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
     <div>
       <Header></Header>
       <Routes>
-        <Route path='/' element={<PrivateRoute><About></About></PrivateRoute>}></Route>
-        <Route path='/about' element={<PrivateRoute><About></About></PrivateRoute>}></Route>
+        <Route path='/' element={<About></About>}></Route>
+        <Route path='/singletask/:id' element={<SingleTask></SingleTask>}></Route>
         <Route path='/todo' element={<Home></Home>}></Route>
         <Route path='/calendar' element={<Calendar></Calendar>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
