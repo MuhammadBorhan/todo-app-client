@@ -43,14 +43,14 @@ const Login = () => {
                 }
                 <p>
                     {
-                        emailLoading && <button class="btn btn-square loading mb-2"></button>
+                        emailLoading && <button className="btn btn-square loading mb-2"></button>
                     }
                 </p>
-                <button class="btn btn-primary">Register</button>
+                <button className="btn btn-primary">Register</button>
                 <p className='mt-3'>Already User? <Link to='/login' className='text-primary font-bold p-3'>Login</Link></p>
-                <div class="flex flex-col w-full border-opacity-50">
-                    <div class="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} class="btn">Signin with google</button>
+                <div className="flex flex-col w-full border-opacity-50">
+                    <div className="divider">OR</div>
+                    <button onClick={() => signInWithGoogle()} className="btn">Signin with google</button>
                 </div>
             </form>
         </div >

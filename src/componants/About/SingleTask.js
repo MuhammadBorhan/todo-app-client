@@ -4,12 +4,13 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { toast } from 'react-toastify';
+import './SingleTask.css';
 
 const SingleTask = () => {
     const { id } = useParams();
     const [task, setTask] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/users/${id}`;
+        const url = `https://fierce-cove-70446.herokuapp.com/users/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTask(data))
@@ -18,7 +19,7 @@ const SingleTask = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = (data, event) => {
         console.log(data);
-        const url = `http://localhost:5000/users/${id}`;
+        const url = `https://fierce-cove-70446.herokuapp.com/users/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -34,7 +35,7 @@ const SingleTask = () => {
             })
     }
     return (
-        <div className='flex flex-col justify-center items-center py-6'>
+        <div className='flex flex-col justify-center items-center py-6 verticalHight'>
             <p className='font-bold'><span className='text-bold text-indigo-600 font-bold text-xl'>Name:</span> {task.name}</p>
             <p><span className='text-blue-500 font-bold text-xl'>Description:</span> {task.description}</p>
             <div className='md:w-1/4 w-full mx-auto'>
@@ -45,7 +46,7 @@ const SingleTask = () => {
 
                 </form>
             </div>
-            <Link to='/'><button class="btn btn-gost mt-4">Back</button></Link>
+            <Link to='/'><button className="btn btn-gost mt-4">Back</button></Link>
         </div>
     );
 };

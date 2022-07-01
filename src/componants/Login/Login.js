@@ -31,14 +31,14 @@ const Login = () => {
                 <p className='text-center text-red-500 fw-bold'>{signError?.message}</p>
                 <p>
                     {
-                        (signLoading || gLoading) && <button class="btn btn-square loading mb-2"></button>
+                        (signLoading || gLoading) && <button className="btn btn-square loading mb-2"></button>
                     }
                 </p>
-                <button class="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Login</button>
                 <p className='text-center mt-3 fw-bold'>New User? <Link to='/register' className='text-primary font-bold'>Register</Link> </p>
-                <div class="flex flex-col w-full border-opacity-50">
-                    <div class="divider">OR</div>
-                    <button onClick={() => signInWithGoogle()} class="btn">Signin with google</button>
+                <div className="flex flex-col w-full border-opacity-50">
+                    <div className="divider">OR</div>
+                    <button onClick={() => signInWithGoogle()} className="btn">Signin with google</button>
                 </div>
             </form>
         </div>
